@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>How to Use?</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
+        img {
+            background: no-repeat center center/cover;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="margin-top: 10px;">Bitcoin Transaction Components</h2>
+        <p>Generate (PrivateKey, PublicKey) pair</p>
+        <h4>PrivateKey</h4>
+        <p>It's your Secret and must not share with anyone.</p>
+        <h4>PublicKey</h4>
+        <p>It's your plain address. It's infeasible to compute PrivateKey from PublicKey.</p>
+        <h4>Address:</h4>
+        <p>It's the encoded PublicKey which is Lockbox where some money is deposited that only a Particular PrivateKey can open. The money inside, of course can only be accessed by the owner who has the PrivateKey. It's like a one-way safe that can receive deposits from anyone.</p>
+        <ul>
+            <h3>Inputs:</h3>
+            <p>Bitcoin's inputs are spending outputs of a previous transaction. That is, you need to have received bitcoins first to spend something. You can not spend money unless you've received money first. The inputs refer to bitcoins that belong to you.</p>
+            <h5>Each input needs two things:</h5>
+            <li>A reference to bitcoins you received previously.</li>
+            <ul>
+                <li><h5>Previous Transaction ID:</h5></li>
+                <p>double sha256 of Previous Transaction</p>
+                <li><h5>Previous Transaction Index:</h5></li>
+                <p>each tx has to have at least one output,but may have many. Thus, we need to define  exactly which output within a transaction we're spending.</p>
+            </ul>
+            <li>Proof that these are yours to spend.</li>
+            <ul>
+                <li><h5>Signature:</h5></li>
+                <p>This is where unlocking of lockbox is done.This proves ownership of the locked box, which authorized spending of the funds.</p>
+            </ul>
+        </ul>
+        <ul>
+            <h3>Outputs:</h3>
+            <p>define where the bitcoins are going. Each transaction must have one or more outputs. (pay out a lot of people at once instead of generating a single transaction for every single person that requests bitcoins.)</p>
+            <p><mark style="background-color: yellow;">Input/Output of any bitcoin transaction must always be fully spent. So if you own 10000 satoshis and want to send half of it somewhere else, we actually have to send one half there, and one half back to us (also called change amount) minus some fee for this transaction to include in the block.</mark></p>
+            <li>Each output has two fields:</li>
+            <ul>
+                <li><h5>Amount:</h5></li>
+                <p>amount of bitcoin being assigned and is specified in satoshis. 1BTC = 10^8 satoshis (100,000,000)</p>
+                <li><h5>Address:</h5></li>
+                <p>Recipient PublicKey(encoded). The locked box and can only be opened by the holder of the key.</p>
+
+            </ul>
+        </ul>
+        <div>
+            <h3>Previous Transaction ID (Hash)</h3>
+            <img src="img1_txid.png" alt="Double SHA256 of Previous Transaction">
+        </div>
+        <div>
+            <h3>Previous Transaction Index</h3>
+            <img src="img2_index.png" alt="Output Index.">
+        </div>
+        <p style="font-weight: bold;">Taken from Book "Programming Bitcoin by Jimmy Song."</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
