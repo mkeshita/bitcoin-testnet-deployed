@@ -1,5 +1,6 @@
 body{
     background-color: #f4f4f4;
+    font-size: 12px;
 }
 ul {
     list-style: none;
@@ -38,12 +39,9 @@ a:hover {
     border-radius: 4px;
 }
 .span-color {
+    font-size: 12px;
     background-color: #565656;
     color: #eee;
-}
-.logo {
-    color: gold;
-    padding-right: 10px;
 }
 .container {
     display: grid;
